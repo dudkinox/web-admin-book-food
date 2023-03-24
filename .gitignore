@@ -11,3 +11,4 @@ dist.zip
 !.yarn/plugins
 .pnp.*
 yarn.lock
+public/Archive.zip
