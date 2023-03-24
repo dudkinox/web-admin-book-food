@@ -12,11 +12,11 @@ session_start();
     <script src="assets/js/initTheme.js"></script>
 
     <?php if (isset($_SESSION["login"])) { ?>
-    <div id="app">
-        <?php include 'components/menu-pages.php'; ?>
-    </div>
+        <div id="app">
+            <?php include 'components/menu-pages.php'; ?>
+        </div>
     <?php } else { ?>
-    <?php include 'page/login.php'; ?>
+        <?php include 'pages/login.php'; ?>
     <?php } ?>
 
     <script src="assets/js/bootstrap.js"></script>
