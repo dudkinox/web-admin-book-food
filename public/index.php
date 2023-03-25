@@ -14,10 +14,10 @@ $page = isset($_GET["page"]) ? $_GET["page"] : '';
     <script src="assets/js/initTheme.js"></script>
 
     <?php if (isset($_SESSION["login"])) { ?>
-    <div id="app">
-        <?php include 'components/menu-pages.php'; ?>
-        <div id="main">
-            <?php
+        <div id="app">
+            <?php include 'components/menu-pages.php'; ?>
+            <div id="main">
+                <?php
                 include 'components/header.php';
                 switch ($page) {
                     case '0':
@@ -31,16 +31,13 @@ $page = isset($_GET["page"]) ? $_GET["page"] : '';
 
                 ?>
 
+            </div>
         </div>
-    </div>
     <?php } else { ?>
-    <?php include 'pages/login.php'; ?>
+        <?php include 'pages/login.php'; ?>
     <?php } ?>
 
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <?php include 'components/script.php'; ?>
 </body>
 
 </html>
