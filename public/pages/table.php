@@ -58,15 +58,20 @@ $detail = $page == "" ?
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn btn-danger">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr> -->
+                        <?php
+                        $row = getBooking();
+                        foreach ($row as $key => $value) {
+                        ?>
+                            <tr>
+                                <td><?php echo $value["number"]; ?></td>
+                                <td><?php echo $value["name"]; ?></td>
+                                <td>
+                                    <button class="btn btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
