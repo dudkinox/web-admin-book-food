@@ -33,26 +33,26 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
-                <li class="sidebar-item">
-                    <a href="index.html active" class="sidebar-link">
+                <li class="sidebar-item <?php echo $page == "" ? "active" : ""; ?>">
+                    <a href="/" class="sidebar-link">
                         <i class="bi bi-person-lines-fill"></i>
                         <span>ข้อมูลการจอง</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item  <?php echo $page == "จัดการโต๊ะ" ? "active" : ""; ?>">
+                    <a href="?page=จัดการโต๊ะ" class="sidebar-link">
                         <i class="bi bi-table"></i>
                         <span>จัดการโต๊ะ</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item  <?php echo $page == "จัดการเมนูอาหาร" ? "active" : ""; ?>">
+                    <a href="?page=จัดการเมนูอาหาร" class="sidebar-link">
                         <i class="bi bi-basket"></i>
                         <span>จัดการเมนูอาหาร</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                <li class="sidebar-item <?php echo $page == "การชำระเงิน" ? "active" : ""; ?>">
+                    <a href="?page=การชำระเงิน" class="sidebar-link">
                         <i class="bi bi-wallet2"></i>
                         <span>การชำระเงิน</span>
                     </a>

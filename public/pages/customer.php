@@ -8,25 +8,6 @@ $detail = $page == "" ?
 และชำระเงินแล้ว
 " : "";
 ?>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">เมนู</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <i data-feather="x"></i>
-                </button>
-            </div>
-            <div class="modal-body" id="show-menu"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                    <i class="bx bx-x d-block d-sm-none"></i>
-                    <span class="d-none d-sm-block">ปิด</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -35,18 +16,6 @@ $detail = $page == "" ?
                 <p class="text-subtitle text-muted">
                     <?php echo $detail; ?>
                 </p>
-            </div>
-            <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="index.html"><?php echo $header; ?></a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            KYP admin
-                        </li>
-                    </ol>
-                </nav>
             </div>
         </div>
     </div>
