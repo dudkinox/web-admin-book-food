@@ -14,17 +14,17 @@ $page = isset($_GET["page"]) ? $_GET["page"] : '';
     <script src="assets/js/initTheme.js"></script>
 
     <?php if (isset($_SESSION["login"])) { ?>
-    <div id="app">
-        <?php include 'components/menu-pages.php'; ?>
-        <div id="main">
-            <?php
+        <div id="app">
+            <?php include 'components/menu-pages.php'; ?>
+            <div id="main">
+                <?php
                 include 'components/header.php';
                 switch ($page) {
                     case 'จัดการโต๊ะ':
                         include 'pages/table.php';
                         break;
                     case 'จัดการเมนูอาหาร':
-                        # code...
+                        include 'pages/manage-food.php';
                         break;
                     case 'การชำระเงิน':
                         # code...
@@ -37,10 +37,10 @@ $page = isset($_GET["page"]) ? $_GET["page"] : '';
 
                 ?>
 
+            </div>
         </div>
-    </div>
     <?php } else { ?>
-    <?php include 'pages/login.php'; ?>
+        <?php include 'pages/login.php'; ?>
     <?php } ?>
 
     <?php include 'components/script.php'; ?>

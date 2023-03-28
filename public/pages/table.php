@@ -1,32 +1,22 @@
 <?php
-require_once "services/booking/booking-service.php";
+require_once "services/tables/table-service.php";
 $header = $page == "" ? "จัดการโต๊ะ" : $page;
-$detail = $page == "" ?
+$detail = $page == "จัดการโต๊ะ" ?
     "
 สามารถค้นหาข้อมูลโต๊ะได้ที่นี่
 แสดงโต๊ะว่าง กับไม่ว่าง
 สามารถลบ และเพิ่มโต๊ะได้
 " : "";
+
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    deleteTable($id, $page);
+}
+if (isset($_GET["add"])) {
+    $add = $_GET["add"];
+    addTable($add, $page);
+}
 ?>
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">เพิ่มโต๊ะ</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <i data-feather="x"></i>
-                </button>
-            </div>
-            <div class="modal-body" id="show-menu"></div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                    <i class="bx bx-x d-block d-sm-none"></i>
-                    <span class="d-none d-sm-block">ปิด</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -44,9 +34,16 @@ $detail = $page == "" ?
                 <div>
                     จัดการโต๊ะ
                 </div>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-                    <i class="bi bi-plus"></i>
-                </button>
+                <div class="row">
+                    <div class="col-10">
+                        <input type="text" class="form-control" id="add-table" placeholder="กรอกเลขโต๊ะที่ต้องการเพิ่ม" />
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btn-primary" onclick="addTable()">
+                            <i class="bi bi-plus"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="card-body text-center">
                 <table class="table table-hover table-striped" id="table1">
@@ -59,16 +56,18 @@ $detail = $page == "" ?
                     </thead>
                     <tbody>
                         <?php
-                        $row = getBooking();
+                        $row = getTables();
                         foreach ($row as $key => $value) {
                         ?>
                             <tr>
                                 <td><?php echo $value["number"]; ?></td>
-                                <td><?php echo $value["name"]; ?></td>
+                                <td><?php echo $value["status"] ? "ว่าง" : "ไม่ว่าง"; ?></td>
                                 <td>
-                                    <button class="btn btn-danger">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
+                                    <a href="?page=<?php echo $page; ?>&id=<?php echo $value['id']; ?>">
+                                        <button class="btn btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -78,3 +77,9 @@ $detail = $page == "" ?
         </div>
     </section>
 </div>
+<script>
+    function addTable() {
+        const number = document.getElementById("add-table").value;
+        window.location.href += "&add=" + number;
+    }
+</script>
