@@ -73,7 +73,7 @@ if (
                 </div>
             </div>
             <div class="card-body text-center">
-                <?php if ($insert != 1 && !isset($edit)) { ?>
+                <?php if ($insert != 1 && $edit == '') { ?>
                 <table class="table table-hover table-striped" id="table1">
                     <thead>
                         <tr>
@@ -110,7 +110,7 @@ if (
                         <?php } ?>
                     </tbody>
                 </table>
-                <?php } else if (!isset($edit) && $insert != 1) { ?>
+                <?php } else if ($edit == '' && $insert != 1) { ?>
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">เพิ่มรายการอาหาร</h4>

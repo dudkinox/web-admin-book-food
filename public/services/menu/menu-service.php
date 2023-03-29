@@ -75,5 +75,6 @@ function findMenu($id)
 
 function editMenu($id, $calories, $image, $name, $price, $page)
 {
+
     echo "<script>window.location.href='?page=$page'</script>";
 }
