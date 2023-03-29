@@ -110,7 +110,7 @@ if (
                         <?php } ?>
                     </tbody>
                 </table>
-                <?php } else if ($edit == '' && $insert != 1) { ?>
+                <?php } else if ($edit == '' && $insert != '') { ?>
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">เพิ่มรายการอาหาร</h4>
