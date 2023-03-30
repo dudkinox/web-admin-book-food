@@ -7,6 +7,9 @@ $detail = $page == "การชำระเงิน" ?
 สามารถค้นหาโต๊ะอาหารได้ที่นี่
 แสดงเฉพาะลูกค้าที่เข้ามาสั่งอาหารแล้วยังไม่ชำระเงิน
 " : "";
+if (isset($_GET["done"])) {
+    updateTable($_GET["done"], $page);
+}
 ?>
 <div class="page-heading">
     <div class="page-title">
@@ -37,10 +40,10 @@ $detail = $page == "การชำระเงิน" ?
                         $row = getPaymentList();
                         foreach ($row as $key => $value) {
                         ?>
-                        <tr>
-                            <td><?php echo $value["table_number"]; ?></td>
-                            <td>
-                                <?php
+                            <tr>
+                                <td><?php echo $value["table_number"]; ?></td>
+                                <td>
+                                    <?php
                                     $count = 1;
                                     $total = 0;
                                     while ($count <= count($value["food_menu"])) {
@@ -54,17 +57,17 @@ $detail = $page == "การชำระเงิน" ?
                                         $count++;
                                     }
                                     ?>
-                            </td>
-                            <td>
-                                <?php
+                                </td>
+                                <td>
+                                    <?php
                                     echo number_format($total);
                                     ?> บาท</td>
-                            <td>
-                                <a href="?page=<?php echo $page; ?>&done=<?php echo $value["table_number"]; ?>">
-                                    <button class="btn btn-primary">ชำระเงินเรียบร้อย</button>
-                                </a>
-                            </td>
-                        </tr>
+                                <td>
+                                    <a href="?page=<?php echo $page; ?>&done=<?php echo $value["table_number"]; ?>">
+                                        <button class="btn btn-primary">ชำระเงินเรียบร้อย</button>
+                                    </a>
+                                </td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>

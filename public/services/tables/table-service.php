@@ -43,7 +43,7 @@ function addTable($id, $page)
     return json_decode($response, true);
 }
 
-function updateTable($number)
+function updateTable($number, $page)
 {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://api-kyp.onrender.com/api/tables/" . $number);
@@ -54,5 +54,6 @@ function updateTable($number)
         exit;
     }
     curl_close($ch);
+    echo "<script>window.location.href='?page=$page'</script>";
     return json_decode($response, true);
 }
